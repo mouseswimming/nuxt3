@@ -1,5 +1,16 @@
+<script setup>
+import { useUser } from "~/stores/User";
+
+definePageMeta({
+  layout: "plain",
+});
+
+// const isLoggedIn = useIsLoggedIn();
+const user = useUser();
+</script>
+
 <template>
-  <form>
+  <form @submit.prevent="user.login">
     <h1>Login</h1>
     <label>
       Username
@@ -9,10 +20,6 @@
       Password
       <input type="password" />
     </label>
+    <button>login</button>
   </form>
 </template>
-<script setup>
-definePageMeta({
-  layout: "plain",
-});
-</script>
